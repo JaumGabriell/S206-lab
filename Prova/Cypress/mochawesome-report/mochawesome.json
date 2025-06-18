@@ -1,0 +1,138 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-15T23:23:48.906Z",
+    "end": "2025-06-15T23:23:56.768Z",
+    "duration": 7862,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4252de92-4e73-43bb-9791-d8d228233b4e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\prova.cy.js",
+      "file": "cypress\\e2e\\prova.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0712bf6c-2d80-487c-9c1f-f97bf293ad40",
+          "title": "Prova",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Entrando na conta com sucesso",
+              "fullTitle": "Prova Entrando na conta com sucesso",
+              "timedOut": null,
+              "duration": 2309,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = selecionarUser(); // pega um usuário aleatório\ncy.visit('https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login');\ncy.get('.borderM > :nth-child(1) > .btn').click();\ncy.get('#userSelect').select(usuario);\ncy.get('form.ng-valid > .btn').click();\ncy.get('.fontBig').should('contain.text', usuario);",
+              "err": {},
+              "uuid": "86a9b518-91ab-4208-84aa-6eb84fc9adcd",
+              "parentUUID": "0712bf6c-2d80-487c-9c1f-f97bf293ad40",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Fazendo um depósito",
+              "fullTitle": "Prova Fazendo um depósito",
+              "timedOut": null,
+              "duration": 1872,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const valorDeposito = Math.floor(Math.random() * 1000) + 1; // valor aleatório entre 1 e 1000\nconst usuario = selecionarUser();\ncy.visit('https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login');\ncy.get('.borderM > :nth-child(1) > .btn').click();\ncy.get('#userSelect').select(usuario);\ncy.get('form.ng-valid > .btn').click();\ncy.get('.fontBig').should('contain.text', usuario);\ncy.get('[ng-class=\"btnClass2\"]').click();\ncy.get('.form-control').type(valorDeposito);\ncy.get('form.ng-dirty > .btn').click();\ncy.get('.borderM > :nth-child(3) > :nth-child(2)').should('contain.text', valorDeposito);",
+              "err": {},
+              "uuid": "0f76fca7-2fd8-47c9-996e-449cc4a0d5a8",
+              "parentUUID": "0712bf6c-2d80-487c-9c1f-f97bf293ad40",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Fazendo um saque com erro",
+              "fullTitle": "Prova Fazendo um saque com erro",
+              "timedOut": null,
+              "duration": 1789,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const saque = 1000;\nconst usuario = selecionarUser();\ncy.visit('https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login');\ncy.get('.borderM > :nth-child(1) > .btn').click();\ncy.get('#userSelect').select(usuario);\ncy.get('form.ng-valid > .btn').click();\ncy.get('.fontBig').should('contain.text', usuario);\ncy.get('[ng-class=\"btnClass3\"]').click();\ncy.get('.form-control').type(saque);\ncy.get('form.ng-dirty > .btn').click();\ncy.get('.error').should('contain.text', 'Transaction Failed. You can not withdraw amount more than the balance.');",
+              "err": {},
+              "uuid": "6cc03bb9-be2c-4536-999f-2aa60dbaa211",
+              "parentUUID": "0712bf6c-2d80-487c-9c1f-f97bf293ad40",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "86a9b518-91ab-4208-84aa-6eb84fc9adcd",
+            "0f76fca7-2fd8-47c9-996e-449cc4a0d5a8",
+            "6cc03bb9-be2c-4536-999f-2aa60dbaa211"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5970,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

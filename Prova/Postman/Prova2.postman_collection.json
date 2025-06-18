@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "2e33faa6-8e39-4983-be80-c6225b6c139f",
+		"name": "Prova2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45069141",
+		"_collection_link": "https://jaum-5117936.postman.co/workspace/Jaum's-Workspace~86e48aa5-4a67-4d73-8420-5413f22a45cf/collection/45069141-2e33faa6-8e39-4983-be80-c6225b6c139f?action=share&source=collection_link&creator=45069141"
+	},
+	"item": [
+		{
+			"name": "Buscando post 43",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains correct post\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"id\", 43);\r",
+							"    pm.expect(jsonData).to.have.property(\"title\");\r",
+							"    pm.expect(jsonData).to.have.property(\"body\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/43",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"43"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria um post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has updated fields\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"id\", 1);\r",
+							"    pm.expect(jsonData).to.have.property(\"title\", \"Agumon\");\r",
+							"    pm.expect(jsonData).to.have.property(\"body\", \"conteúdo atualizado\");\r",
+							"    pm.expect(jsonData).to.have.property(\"userId\", 1);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Agumon\",\r\n    \"body\": \"conteúdo atualizado\",\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "negativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404 or empty object\", function () {\r",
+							"    pm.expect(pm.response.code === 404 || _.isEmpty(pm.response.json())).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/Angemon",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"Angemon"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
